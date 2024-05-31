@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", () => {
     const modal = document.getElementById("modal");
     const loginForm = document.getElementById("modal-login");
@@ -32,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const email = document.getElementById("login-email").value;
         const password = document.getElementById("login-password").value;
 
-        fetch('/login', {
+        fetch('https://your-app-name.herokuapp.com/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -42,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(response => response.json())
         .then(data => {
             if (data.message === 'Login successful!') {
-                window.location.href = '/home.html';
+                window.location.href = 'home.html';
             } else {
                 alert(data.message);
             }
@@ -67,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        fetch('/signup', {
+        fetch('https://your-app-name.herokuapp.com/signup', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -77,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(response => response.json())
         .then(data => {
             if (data.message === 'Sign up successful!') {
-                window.location.href = '/home.html';
+                window.location.href = 'home.html';
             } else {
                 alert(data.message);
             }
