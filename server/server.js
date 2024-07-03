@@ -1,3 +1,4 @@
+// server/server.js
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
@@ -20,12 +21,12 @@ mongoose.connect(mongoUri, { useNewUrlParser: true, useUnifiedTopology: true })
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Serve static files from the "sukhibhava-public" directory
-app.use(express.static(path.join(__dirname, '../sukhibhava-public')));
+// Serve static files from the "public" directory
+app.use(express.static(path.join(__dirname, '../public')));
 
 // Route for the root URL
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../sukhibhava-public/index.html'));
+    res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
 app.post('/login', async (req, res) => {
