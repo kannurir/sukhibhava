@@ -1,4 +1,3 @@
-// server/server.js
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
@@ -54,7 +53,7 @@ app.post('/signup', async (req, res) => {
         res.send({ message: 'Sign up successful!' });
     } catch (error) {
         console.error('Error during signup:', error);
-        res.status(500).send('Internal Server Error');
+        res.status(500).send({ message: 'Internal Server Error', error });
     }
 });
 
