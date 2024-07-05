@@ -7,7 +7,6 @@ const User = require('./models/user');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Use the MongoDB URI from the environment variables
 const mongoUri = process.env.MONGODB_URI;
 
 mongoose.connect(mongoUri, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -20,10 +19,8 @@ mongoose.connect(mongoUri, { useNewUrlParser: true, useUnifiedTopology: true })
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Serve static files from the "public" directory
 app.use(express.static(path.join(__dirname, '../public')));
 
-// Route for the root URL
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/index.html'));
 });
